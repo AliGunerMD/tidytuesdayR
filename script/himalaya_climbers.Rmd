@@ -20,9 +20,11 @@ theme_set(theme_light())
 ```{r load}
 tt <- tt_load("2020-09-22")
 tt
+# tuesdata <- tidytuesdayR::tt_load(2020, week = 45)
 
 peaks <- tt$peaks
 expeditions <- tt$expeditions
 members <- tt$members
+
 ```
 
