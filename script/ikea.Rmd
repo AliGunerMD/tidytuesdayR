@@ -1,0 +1,28 @@
+---
+title: "Ikea"
+author: "Ali Guner"
+date: "11/4/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidytuesdayR)
+library(scales)
+theme_set(theme_light())
+```
+
+
+```{r load}
+
+tuesdata <- tidytuesdayR::tt_load(2020, week = 45)
+# tuesdata <- tidytuesdayR::tt_load('2020-11-03')
+
+ikea <- tuesdata$ikea
+ikea
+```
