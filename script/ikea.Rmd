@@ -43,12 +43,16 @@ ikea %>%
 
 
 ```{r}
+library(ggridges)
 
 ikea %>% 
   mutate(category = fct_reorder(category, price)) %>% 
   ggplot(aes(price, category))+
-  geom_boxplot() +
-  geom_jitter(width = 0, height = .1,alpha=.25)+
+  # geom_boxplot() +
+  geom_density_ridges() +
+  # geom_jitter(width = 0, height = .1,alpha=.25)+
   scale_x_log10()
+
+# use geom_density_ridges()
 ```
 
