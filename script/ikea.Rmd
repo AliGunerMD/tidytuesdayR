@@ -23,6 +23,32 @@ theme_set(theme_light())
 tuesdata <- tidytuesdayR::tt_load(2020, week = 45)
 # tuesdata <- tidytuesdayR::tt_load('2020-11-03')
 
-ikea <- tuesdata$ikea
+ikea <- tuesdata$ikea %>% 
+  select(-X1)
 ikea
+View(ikea)
 ```
+
+
+```{r}
+ikea %>% 
+  count(category, sort=TRUE) %>% 
+  mutate(category = fct_reorder(category, n)) %>% 
+  ggplot(aes(n, category))+
+  geom_col() +
+  labs ( x= "# of items",
+         y= "",
+         title= " Most common categories of IKEA")
+```
+
+
+```{r}
+
+ikea %>% 
+  mutate(category = fct_reorder(category, price)) %>% 
+  ggplot(aes(price, category))+
+  geom_boxplot() +
+  geom_jitter(width = 0, height = .1,alpha=.25)+
+  scale_x_log10()
+```
+
